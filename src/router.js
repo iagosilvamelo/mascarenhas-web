@@ -81,33 +81,21 @@ export default new Router({
 			]
 		},
 
-		// Bilhetagem
+		// Agenda
 		{
-			path: "/Bilhetagem",
+			path: "/Agenda",
 			component: Bilhetagem
 		},
 
-		// Monitor de ramais
+		// Eventos
 		{
-			path: "/Monitor",
-			component: MonitorRamal
-		},
-
-		// Email
-		{
-			path: "/Email",
+			path: "/Eventos",
 			component: Emails
 		},
 
-		// Auditoria
+		// Usuarios
 		{
-			path: "/Auditoria",
-			component: Auditoria
-		},
-
-		// Auditoria
-		{
-			path: "/API",
+			path: "/Usuarios",
 			component: TesteAPI,
 			props: true,
 
