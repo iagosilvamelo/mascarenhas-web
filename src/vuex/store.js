@@ -36,6 +36,10 @@ export default new Vuex.Store({
 
 		CHANGE_VIEW(state, payload) {
 			state.view = payload;
+		},
+
+		CHANGE_AUTH(state, payload) {
+			state.auth = payload;
 		}
 	},
 
@@ -45,13 +49,5 @@ export default new Vuex.Store({
 	*	Responsável criar lógicas maiores e executar mutations.
 	*	Todo tipo de alteração ao state deve ser feito apenas via mutation.
 	*/
-	actions: {
-		loadUser(context, payload) {
-			fetch("")
-				.then(r => r.json())
-				.then(r => {
-					context.commit("CHANGE_USER", r);
-				});
-		}
-	}
+	actions: {}
 });
