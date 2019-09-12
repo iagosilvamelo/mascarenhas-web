@@ -37,10 +37,10 @@
 
       <!-- Nav Item - User Information -->
       <li class="nav-item no-arrow">
-        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <span class="nav-link" id="userDropdown">
           <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ logedUser.name }}</span>
           <img class="img-profile rounded-circle" :src="logedUser.img" />
-        </a>
+        </span>
       </li>
 
     </ul>
@@ -64,5 +64,9 @@ export default {
 <style>
   .navbar-card {
     height: 60px
+  }
+
+  .nav-link {
+    cursor: pointer;
   }
 </style>
