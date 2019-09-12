@@ -19,6 +19,8 @@ export default new Vuex.Store({
 			email: "iago.melo@dad.eng.br",
 			img: "https://iagosilvamelo.github.io/iagosilvamelo/img/profile.jpg"
 		},
+
+		auth: true
 	},
 
 	/**
