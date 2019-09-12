@@ -4,13 +4,13 @@ import Router from "vue-router";
 //	
 //	Import Views
 //
-import Login        from "./views/Dashboard.vue";
-import Dashboard    from "./views/Dashboard.vue";
-import Bilhetagem   from "./views/Bilhetagem.vue";
-import MonitorRamal from "./views/MonitorRamal.vue";
-import Emails       from "./views/Emails.vue";
-import Auditoria    from "./views/Auditoria.vue";
-import TesteAPI     from "./views/TesteAPI.vue";
+import Login        from "./views/application/Dashboard.vue";
+import Dashboard    from "./views/application/Dashboard.vue";
+import Bilhetagem   from "./views/application/Bilhetagem.vue";
+import MonitorRamal from "./views/application/MonitorRamal.vue";
+import Emails       from "./views/application/Emails.vue";
+import Auditoria    from "./views/application/Auditoria.vue";
+import TesteAPI     from "./views/application/TesteAPI.vue";
 
 //
 //	Import Components

@@ -20,7 +20,7 @@ export default new Vuex.Store({
 			img: "https://iagosilvamelo.github.io/iagosilvamelo/img/profile.jpg"
 		},
 
-		auth: true
+		auth: false
 	},
 
 	/**

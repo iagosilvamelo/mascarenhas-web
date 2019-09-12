@@ -1,10 +1,10 @@
 <template>
 	<div id="wrapper">
-            <leftMenu/>
+            <leftMenu />
 
             <div id="content-wrapper" class="d-flex flex-column">
                 <div id="content">
-                    <topMenu/>
+                    <topMenu />
                     <div class="container-fluid">
                         <transition mode="out-in" name="leftIn">
                             <router-view></router-view>
@@ -29,7 +29,7 @@
 </script>
 
 <style scoped>
-	@import '../assets/css/liga.css';
+	@import '../../assets/css/liga.css';
 
     .leftIn-enter, .leftIn-leave-to {
         transform: translate3d(-40px, 0, 0);
