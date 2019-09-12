@@ -14,7 +14,7 @@
 
     <li class="nav-item">
       <router-link to="/Dashboard" class="nav-link">
-        <i class="fas fa-fw fa-tachometer-alt"></i>
+        <font-awesome-icon icon="tachometer-alt" />
         <span>Dashboard</span>
       </router-link>
     </li>
@@ -104,4 +104,7 @@
 </script>
 
 <style>
+.nav-item span {
+  margin-left: 4px;
+}
 </style>

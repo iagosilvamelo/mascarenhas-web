@@ -4,6 +4,7 @@ import router       from './router.js'
 import LoadScript   from 'vue-plugin-load-script';
 import store		from './vuex/store.js';
 
+import faIcon  from './assets/font-awesome.js'
 import Loading from './components/loading.vue';
 
 //	COMPONENTES GLOBAIS
