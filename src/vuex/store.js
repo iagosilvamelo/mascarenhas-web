@@ -15,8 +15,9 @@ export default new Vuex.Store({
 		user: {
 			id: 1,
 			name: "Iago Melo",
-			fold: 2,
-			email: "iago.melo@dad.eng.br"
+			fold: 3,
+			email: "iago.melo@dad.eng.br",
+			img: "https://iagosilvamelo.github.io/iagosilvamelo/img/profile.jpg"
 		},
 	},
 
