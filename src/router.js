@@ -50,35 +50,7 @@ export default new Router({
 		// Dashboard
 		{
 			path: "/Dashboard",
-			component: Dashboard,
-			props: true,
-
-			// Subrotas em Dashboard
-			children: [
-				{
-					name: "dsbUnidade",
-					path: ":unidade",
-					component: Unidade,
-					props: true,
-
-					// Subrotas para cada unidade
-					children: [
-						{
-							name: "dsbGraficos",
-							path: "Graficos",
-							component: Graficos,
-							props: true,
-						},
-
-						{
-							name: "dsbRamais",
-							path: "Ramais",
-							component: Ramais,
-							props: true,
-						}
-					]
-				}
-			]
+			component: Dashboard
 		},
 
 		// Agenda

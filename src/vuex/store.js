@@ -15,16 +15,9 @@ export default new Vuex.Store({
 		user: {
 			id: 1,
 			name: "Iago Melo",
-			fold: 3,
+			fold: 2,
 			email: "iago.melo@dad.eng.br"
 		},
-
-		unidade: {
-			id: 1,
-			nome: "POA",
-			cidade: "Porto Alegre",
-			uf: "RS"
-		}
 	},
 
 	/**
@@ -38,8 +31,8 @@ export default new Vuex.Store({
 			state.user = payload;
 		},
 
-		CHANGE_UNIDADE(state, payload) {
-			state.unidade = payload;
+		CHANGE_VIEW(state, payload) {
+			state.view = payload;
 		}
 	},
 

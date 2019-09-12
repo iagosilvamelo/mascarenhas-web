@@ -1,21 +1,9 @@
 <template>
   <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
-    <div class="col-xl-3 col-md-6">
-      <div class="card border-left-primary shadow navbar-card">
-        <div class="card-body">
-          <div class="row no-gutters align-items-center">
-
-            <div class="col mr-2">
-              <div class="mb-0 font-weight-bold text-gray-800" v-if="$store.state.user.fold == 3">Super Administrador</div>
-              <div class="mb-0 font-weight-bold text-gray-800" v-if="$store.state.user.fold == 2">Administrador</div>
-              <div class="mb-0 font-weight-bold text-gray-800" v-if="$store.state.user.fold == 1">Operador</div>
-            </div>
-
-          </div>
-        </div>
-      </div>
-    </div>
+    <h1 class="h6 mb-0 text-gray-600" v-if="$store.state.user.fold == 3">Administrador</h1>
+    <h1 class="h6 mb-0 text-gray-600" v-if="$store.state.user.fold == 2">Palestrante</h1>
+    <h1 class="h6 mb-0 text-gray-600" v-if="$store.state.user.fold == 1">Usuário</h1>
 
     <!-- Sidebar Toggle (Topbar) -->
     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">

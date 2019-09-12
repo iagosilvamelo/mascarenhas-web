@@ -27,7 +27,7 @@
     export default {
         components: {
             leftMenu, topMenu
-        }
+        },
     };
 </script>
 
