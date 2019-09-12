@@ -1,18 +1,9 @@
 <template>
   <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-
-    <!-- Sidebar - Brand -->
-    <router-link to="/Dashboard" class="sidebar-brand d-flex align-items-center justify-content-center">
-      <div class="sidebar-brand-text mx-3">WE Menager</div>
-    </router-link>
-
-    <!-- Divider -->
-    <hr class="sidebar-divider my-0">
-
     <li class="nav-item">
       <router-link to="/Dashboard" class="nav-link">
         <font-awesome-icon icon="tachometer-alt" />
-        <span>Dashboard</span>
+        <span><b>Dashboard</b></span>
       </router-link>
     </li>
 
