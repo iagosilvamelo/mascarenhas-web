@@ -49,5 +49,10 @@ export default new Vuex.Store({
 	*	Responsável criar lógicas maiores e executar mutations.
 	*	Todo tipo de alteração ao state deve ser feito apenas via mutation.
 	*/
-	actions: {}
+	actions: {
+		login(context, payload) {
+			console.log(payload)
+			context.commit("CHANGE_AUTH", true);
+		}
+	}
 });
