@@ -16,8 +16,8 @@
 </template>
 
 <script>
-    import leftMenu  from "@/components/template/left-menu.vue";
-    import topMenu   from "@/components/template/top-menu.vue";
+    import leftMenu  from "@/components/application/template/left-menu.vue";
+    import topMenu   from "@/components/application/template/top-menu.vue";
 
     export default {
     	name: "Application",
