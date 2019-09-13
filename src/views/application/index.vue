@@ -1,31 +1,14 @@
 <template>
 	<div id="wrapper">
-            <leftMenu />
-
-            <div id="content-wrapper" class="d-flex flex-column">
-                <div id="content">
-                    <topMenu />
-                    <div class="container-fluid">
-                        <transition mode="out-in" name="leftIn">
-                            <router-view></router-view>
-                        </transition>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <leftMenu />
+        <AppContent />
+    </div>
 </template>
 
 <script>
-    import leftMenu  from "@/components/application/template/left-menu.vue";
-    import topMenu   from "@/components/application/template/top-menu.vue";
-
-    export default {
-    	name: "Application",
-
-        components: {
-            leftMenu, topMenu
-        },
-    };
+    import leftMenu   from "@/components/application/template/left-menu.vue";
+    import AppContent from "@/components/application/template/content.vue";
+    export default { components: { leftMenu, AppContent } }
 </script>
 
 <style scoped>
