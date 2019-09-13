@@ -4,25 +4,17 @@ import Router from "vue-router";
 //	
 //	Import Views
 //
-import Login        from "./views/application/Dashboard.vue";
-import Dashboard    from "./views/application/Dashboard.vue";
-import Bilhetagem   from "./views/application/Bilhetagem.vue";
-import MonitorRamal from "./views/application/MonitorRamal.vue";
-import Emails       from "./views/application/Emails.vue";
-import Auditoria    from "./views/application/Auditoria.vue";
-import TesteAPI     from "./views/application/TesteAPI.vue";
+import Dashboard from "./views/application/Dashboard.vue";
+import Agenda    from "./views/application/Agenda.vue";
+import Eventos   from "./views/application/Eventos.vue";
+import Usuarios  from "./views/application/Usuarios.vue";
 
 //
 //	Import Components
 //
 
-// Dashboard
-import Unidade  from "./components/Dashboard/Unidade.vue";
-import Ramais   from "./components/Dashboard/Ramais.vue";
-import Graficos from "./components/Dashboard/Graficos.vue";
-
 // API
-import getRamais from "./components/API/getRamais.vue";
+import getUsuarios from "./components/application/Usuarios/getUsuarios.vue";
 
 Vue.use(Router);
 
@@ -41,12 +33,6 @@ export default new Router({
 			redirect: "/Dashboard"
 		},
 
-		// Login
-		{
-			path: "/Login",
-			component: Auditoria
-		},
-
 		// Dashboard
 		{
 			path: "/Dashboard",
@@ -56,27 +42,41 @@ export default new Router({
 		// Agenda
 		{
 			path: "/Agenda",
-			component: Bilhetagem
+			component: Agenda
 		},
 
 		// Eventos
 		{
 			path: "/Eventos",
-			component: Emails
+			component: Eventos
 		},
 
 		// Usuarios
 		{
 			path: "/Usuarios",
-			component: TesteAPI,
+			component: Usuarios,
 			props: true,
 
 			// Subrotas em API
 			children: [
 				{
-					name: "getRamais",
+					name: "getAll",
 					path: ":get",
-					component: getRamais,
+					component: getUsuarios,
+					props: true
+				},
+
+				{
+					name: "getUsers",
+					path: ":get",
+					component: getUsuarios,
+					props: true
+				},
+
+				{
+					name: "getAdmins",
+					path: ":get",
+					component: getUsuarios,
 					props: true
 				}
 			]

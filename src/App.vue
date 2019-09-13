@@ -1,5 +1,5 @@
 <template>
-	<transition mode="out-in" name="fadeIn">
+	<transition mode="out-in" name="leftIn">
     	<application />
     </transition>
 </template>
@@ -10,11 +10,11 @@
 </script>
 
 <style>
-	.fadeIn-enter, .fadeIn-leave-to {
+	.leftIn-enter, .leftIn-leave-to {
         transform: translate3d(-40px, 0, 0);
         opacity: 0
     }
-    .fadeIn-enter-active, .fadeIn-leave-active {
+    .leftIn-enter-active, .leftIn-leave-active {
         transition: all 0.3s;
     }
 </style>

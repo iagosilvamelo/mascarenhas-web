@@ -30,12 +30,4 @@
 
 <style scoped>
 	@import '../../assets/css/liga.css';
-
-    .leftIn-enter, .leftIn-leave-to {
-        transform: translate3d(-40px, 0, 0);
-        opacity: 0
-    }
-    .leftIn-enter-active, .leftIn-leave-active {
-        transition: all 0.3s;
-    }
 </style>
