@@ -1,12 +1,10 @@
 <template>
 	<transition mode="out-in" name="leftIn">
-    	<application />
+    	<router-view></router-view>
     </transition>
 </template>
 
 <script>
-    import application from "./views/application.vue";
-    export default { components: { application } };
 </script>
 
 <style>

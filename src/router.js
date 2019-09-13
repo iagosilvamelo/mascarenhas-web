@@ -6,8 +6,10 @@ import Router from "vue-router";
 //
 import Dashboard from "./views/application/Dashboard.vue";
 import Agenda    from "./views/application/Agenda.vue";
-import Eventos   from "./views/application/Eventos.vue";
+import Eventos   from "./views/Eventos.vue";
 import Usuarios  from "./views/application/Usuarios.vue";
+
+import App  from "./views/application/index.vue";
 
 //
 //	Import Components
@@ -30,56 +32,71 @@ export default new Router({
 		// Toda rota não registrada, redireciona para Dashboard
 		{
 			path: "*",
-			redirect: "/Dashboard"
+			redirect: "/"
 		},
 
 		// Dashboard
 		{
-			path: "/Dashboard",
-			component: Dashboard
-		},
-
-		// Agenda
-		{
-			path: "/Agenda",
-			component: Agenda
-		},
-
-		// Eventos
-		{
-			path: "/Eventos",
+			path: "/",
 			component: Eventos
 		},
 
-		// Usuarios
+		// App
 		{
-			path: "/Usuarios",
-			component: Usuarios,
+			path: "/App",
+			component: App,
 			props: true,
 
 			// Subrotas em API
 			children: [
 				{
-					name: "getAll",
-					path: ":get",
-					component: getUsuarios,
-					props: true
+					name: "Dashboard",
+					path: "Dashboard",
+					component: Dashboard,
 				},
 
 				{
-					name: "getUsers",
-					path: ":get",
-					component: getUsuarios,
-					props: true
+					name: "Agenda",
+					path: "Agenda",
+					component: Agenda,
 				},
 
 				{
-					name: "getAdmins",
-					path: ":get",
-					component: getUsuarios,
-					props: true
-				}
+					name: "Eventos",
+					path: "Eventos",
+					component: Eventos,
+				},
+
+				{
+					name: "Usuarios",
+					path: "Usuarios",
+					component: Usuarios,
+					props: true,
+
+					children: [
+						{
+							name: "getAll",
+							path: ":get",
+							component: getUsuarios,
+							props: true
+						},
+
+						{
+							name: "getUsers",
+							path: ":get",
+							component: getUsuarios,
+							props: true
+						},
+
+						{
+							name: "getAdmins",
+							path: ":get",
+							component: getUsuarios,
+							props: true
+						}
+					]
+				},
 			]
-		}
+		},
 	]
 })
