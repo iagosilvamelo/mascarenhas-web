@@ -7,6 +7,11 @@ import getUsuarios from "@/components/application/Usuarios/getUsuarios.vue";
 
 export default [
 	{
+		path: "/",
+		component: Dashboard,
+	},
+
+	{
 		name: "Dashboard",
 		path: "Dashboard",
 		component: Dashboard,

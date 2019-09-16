@@ -4,6 +4,9 @@ import App     from "@/views/application/index.vue";
 import app_routes  from './application.js'
 import site_routes from './site.js'
 
+import Eventos from "@/views/site/Eventos.vue";
+import Home   from "@/views/site/home.vue";
+
 export default [
 	// Toda rota não registrada, redireciona para Index
 	{
@@ -11,7 +14,7 @@ export default [
 		redirect: "/"
 	},
 
-	// Dashboard
+	// Site
 	{
 		path: "/",
 		component: Index,
@@ -21,7 +24,7 @@ export default [
 	// App
 	{
 		path: "/App",
-		component: App,
+		component: Index,
 		props: true,
 		children: app_routes,
 		beforeEnter: (to, from, next) => {

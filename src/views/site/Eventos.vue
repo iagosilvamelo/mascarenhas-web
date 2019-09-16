@@ -1,7 +1,7 @@
 <template>
-    <div>
+    <section>
     	<h1>Pagina de Eventos</h1>
-    </div>
+    </section>
 </template>
 
 <script>

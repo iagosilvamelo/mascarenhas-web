@@ -3,11 +3,6 @@ import Home   from "@/views/site/home.vue";
 
 export default [
 	{
-		path: "/",
-		redirect: "/Home",
-	},
-
-	{
 		path: "Home",
 		component: Home,
 	},
