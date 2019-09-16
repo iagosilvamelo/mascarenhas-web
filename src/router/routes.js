@@ -1,10 +1,11 @@
-import Eventos from "@/views/Eventos.vue";
+import Index   from "@/views/site/index.vue";
 import App     from "@/views/application/index.vue";
 
-import application from './application.js'
+import app_routes  from './application.js'
+import site_routes from './site.js'
 
 export default [
-	// Toda rota não registrada, redireciona para Dashboard
+	// Toda rota não registrada, redireciona para Index
 	{
 		path: "*",
 		redirect: "/"
@@ -13,7 +14,8 @@ export default [
 	// Dashboard
 	{
 		path: "/",
-		component: Eventos
+		component: Index,
+		children: site_routes
 	},
 
 	// App
@@ -21,8 +23,9 @@ export default [
 		path: "/App",
 		component: App,
 		props: true,
-
-		// Subrotas em API
-		children: application
+		children: app_routes,
+		beforeEnter: (to, from, next) => {
+			
+		},
 	},
 ]
