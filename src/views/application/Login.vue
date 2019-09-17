@@ -49,9 +49,7 @@
 		},
 
 		methods: {
-			async login() {
-        this.$store.dispatch("login", this.params);
-			}
+			login() { this.$store.dispatch("login", this.params) }
 		}
 	}
 </script>

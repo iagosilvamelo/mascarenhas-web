@@ -57,6 +57,11 @@ export default new Vuex.Store({
 				context.commit("CHANGE_AUTH", true);
 				router.push('/App');
 			}
+		},
+
+		logof(context, payload) {
+			context.commit("CHANGE_AUTH", false);
+			router.push('/Home');
 		}
 	}
 });

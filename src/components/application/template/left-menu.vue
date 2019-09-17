@@ -44,12 +44,26 @@
       </router-link>
     </li>
 
+    <!-- Divider -->
+    <hr class="sidebar-divider">
+
+    <li class="nav-item">
+      <a @click="logof" href="#" class="nav-link">
+        <font-awesome-icon icon="sign-out-alt" size="xs" />
+        <span>Sair</span>
+      </a>
+    </li>
+
   </ul>
 </template>
 
 <script>
   export default {
-    name: "left-menu"
+    name: "left-menu",
+
+    methods: {
+      logof() { this.$store.dispatch("logof", true) }
+    }
   };
 </script>
 
