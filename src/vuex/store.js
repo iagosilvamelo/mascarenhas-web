@@ -1,5 +1,6 @@
-import Vue  from "vue";
-import Vuex from "vuex";
+import Vue    from "vue";
+import Vuex   from "vuex";
+import router from '@/router/index.js'
 
 Vue.use(Vuex);
 
@@ -51,9 +52,11 @@ export default new Vuex.Store({
 	*/
 	actions: {
 		login(context, payload) {
-			console.log(payload)
-			context.commit("CHANGE_AUTH", true)
-			return true
+			
+			if ( payload.email === 'masca@renhas.com' && payload.senha === '12345678') {
+				context.commit("CHANGE_AUTH", true);
+				router.push('/App');
+			}
 		}
 	}
 });

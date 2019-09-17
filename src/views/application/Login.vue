@@ -38,8 +38,6 @@
 </template>
 
 <script>
-  import router from '@/router/index.js'
-
 	export default {
 		data() {
 			return {
@@ -51,8 +49,8 @@
 		},
 
 		methods: {
-			login() {
-				if ( this.$store.dispatch("login", this.params) ) router.push('/App')
+			async login() {
+        this.$store.dispatch("login", this.params);
 			}
 		}
 	}
