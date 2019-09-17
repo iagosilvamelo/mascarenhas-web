@@ -21,7 +21,7 @@
 										<label for="inputPassword">Password</label>
 									</div>
 
-									<button class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2" type="submit" @click.default="login">Entrar</button>
+									<button class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2" type="submit" @click.self.prevent="login">Entrar</button>
 
 									<div class="d-flex justify-content-between">
 										<a class="small" href="#">Cadastrar</a>
@@ -38,6 +38,8 @@
 </template>
 
 <script>
+  import router from '@/router/index.js'
+
 	export default {
 		data() {
 			return {
@@ -50,8 +52,7 @@
 
 		methods: {
 			login() {
-				auth = this.$store.dispatch("login", this.params)
-        if ( auth ) this.$router.replace('App');
+				if ( this.$store.dispatch("login", this.params) ) router.push('/App')
 			}
 		}
 	}

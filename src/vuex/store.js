@@ -52,8 +52,8 @@ export default new Vuex.Store({
 	actions: {
 		login(context, payload) {
 			console.log(payload)
-			context.commit("CHANGE_AUTH", true);
-			return true;
+			context.commit("CHANGE_AUTH", true)
+			return true
 		}
 	}
 });
