@@ -53,6 +53,7 @@ export default new Vuex.Store({
 		login(context, payload) {
 			console.log(payload)
 			context.commit("CHANGE_AUTH", true);
+			return true;
 		}
 	}
 });

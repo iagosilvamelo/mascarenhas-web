@@ -50,7 +50,8 @@
 
 		methods: {
 			login() {
-				this.$store.dispatch("login", this.params)
+				auth = this.$store.dispatch("login", this.params)
+        if ( auth ) this.$router.replace('App');
 			}
 		}
 	}
