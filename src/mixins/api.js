@@ -1,7 +1,13 @@
 import axios from "axios";
 
 const localInstance = axios.create({
-	baseURL: "http://172.21.255.206:8011/v1"
+	baseURL: "http://localhost:8011/api",
+
+	header: {
+		'Access-Control-Allow-Origin':'*',
+		"Access-Control-Allow-Headers": "Authorization", 
+		'Content-Type': 'application/json'
+	}
 });
 
 export default {
@@ -17,19 +23,28 @@ export default {
 			this.loading  = true;
 			this.response = null;
 
-			const params = {
-				header: {
-					'Access-Control-Allow-Origin':'*',
-					"Access-Control-Allow-Headers": "Authorization", 
-					'Content-Type': 'multipart/form-data'
-				}
-			}
-
-			localInstance.get(`${table}/${method}`, params)
-			// axios.get("http://viacep.com.br/ws/94960200/json")
+			localInstance.get(`${table}/${method}`)
 			.then(r => {
 				this.response = r.data;
 				this.loading  = false;
+			});
+		},
+
+		Auth(credentials) {
+			this.loading  = true;
+			this.response = null;
+
+			const params = {
+				"username" : credentials.username,
+				"password" : credentials.password
+			}
+
+			localInstance.post("Auth/Login", params)
+			.then(r => {
+				this.response = r.data;
+				this.loading  = false;
+
+				this.$store.dispatch("login", r.data)
 			});
 		}
 	}

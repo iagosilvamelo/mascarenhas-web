@@ -12,12 +12,12 @@
 								<h3 class="login-heading mb-4">Bem vindo!</h3>
 								<form>
 									<div class="form-label-group">
-										<input type="email" id="inputEmail" v-model="params.email" class="form-control" placeholder="Email address" required autofocus>
-										<label for="inputEmail">Email address</label>
+										<input type="text" id="inputUser" v-model="params.username" class="form-control" placeholder="Usuário" required autofocus>
+										<label for="inputUser">Usuário</label>
 									</div>
 
 									<div class="form-label-group">
-										<input type="password" id="inputPassword" v-model="params.senha" class="form-control" placeholder="Password" required>
+										<input type="password" id="inputPassword" v-model="params.password" class="form-control" placeholder="Password" required>
 										<label for="inputPassword">Password</label>
 									</div>
 
@@ -38,18 +38,25 @@
 </template>
 
 <script>
+  import api from '@/mixins/api.js'
+
 	export default {
 		data() {
 			return {
 				params: {
-					email: "",
-					senha: ""
+					username: "",
+					password: ""
 				}
 			}
 		},
 
+    mixins: [api],
+
 		methods: {
-			login() { this.$store.dispatch("login", this.params) }
+			async login() { 
+        // this.$store.dispatch("login", this.params) 
+        await this.Auth(this.params)
+      }
 		}
 	}
 </script>

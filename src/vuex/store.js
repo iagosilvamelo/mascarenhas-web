@@ -1,6 +1,7 @@
 import Vue    from "vue";
 import Vuex   from "vuex";
 import router from '@/router/index.js'
+// import Api    from '@mixins/api.js'
 
 Vue.use(Vuex);
 
@@ -14,13 +15,24 @@ export default new Vuex.Store({
 	*/
 	state: {
 		user: {
-			id: 1,
-			name: "Iago Melo",
-			fold: 3,
-			email: "iago.melo@dad.eng.br",
-			img: "https://iagosilvamelo.github.io/iagosilvamelo/img/profile.jpg"
+			id: null,
+			nome: null,
+			type: null,
+			endereco: null,
+			numero: null,
+			complemento: null,
+			bairro: null,
+			uf: null,
+			cep: null,
+			email: null,
+			fone: null,
+			celular: null,
+			nascimento: null,
+			created_at: null,
+			updated_at: null
 		},
 
+		api_key: null,
 		auth: false
 	},
 
@@ -41,6 +53,10 @@ export default new Vuex.Store({
 
 		CHANGE_AUTH(state, payload) {
 			state.auth = payload;
+		},
+
+		CHANGE_API_KEY(state, payload) {
+			state.auth = payload;
 		}
 	},
 
@@ -52,11 +68,14 @@ export default new Vuex.Store({
 	*/
 	actions: {
 		login(context, payload) {
-			
-			if ( payload.email === 'masca@renhas.com' && payload.senha === '12345678') {
-				context.commit("CHANGE_AUTH", true);
-				router.push('/App');
-			}
+			context.commit("CHANGE_API_KEY", payload.api_key);
+			context.commit("CHANGE_USER", payload.user);
+			context.commit("CHANGE_AUTH", true);
+			router.push('/App');
+			// if ( payload.email === 'masca@renhas.com' && payload.senha === '12345678') {
+			// 	context.commit("CHANGE_AUTH", true);
+			// 	router.push('/App');
+			// }
 		},
 
 		logof(context, payload) {
