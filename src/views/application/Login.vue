@@ -10,6 +10,9 @@
 							<div class="col-md-9 col-lg-8 mx-auto">
 
 								<h3 class="login-heading mb-4">Bem vindo!</h3>
+
+                <div class="alert alert-danger" :class="alert" role="alert">{{ erro }}</div>
+
 								<form>
 									<div class="form-label-group">
 										<input type="text" id="inputUser" v-model="params.username" class="form-control" placeholder="Usuário" required autofocus>
@@ -43,6 +46,9 @@
 	export default {
 		data() {
 			return {
+        alert: "hidden",
+        erro: "",
+
 				params: {
 					username: "",
 					password: ""
@@ -54,8 +60,17 @@
 
 		methods: {
 			async login() { 
-        // this.$store.dispatch("login", this.params) 
-        await this.Auth(this.params)
+        const result = await this.Auth(this.params)
+
+        if ( result.status == "error" ) {
+          this.erro  = result.result
+          this.alert = "show"
+
+          setTimeout(() => {
+            this.alert = "hidden"
+            this.erro  = ""
+          }, 5000);
+        }
       }
 		}
 	}

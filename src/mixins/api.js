@@ -30,22 +30,18 @@ export default {
 			});
 		},
 
-		Auth(credentials) {
+		async Auth(credentials) {
 			this.loading  = true;
 			this.response = null;
 
-			const params = {
-				"username" : credentials.username,
-				"password" : credentials.password
-			}
+			const authenticate = await localInstance.post("Auth/Login", credentials).then( r => r.data )
 
-			localInstance.post("Auth/Login", params)
-			.then(r => {
-				this.response = r.data;
-				this.loading  = false;
+			if ( authenticate.status == "success" ) this.$store.dispatch("login", authenticate );
 
-				this.$store.dispatch("login", r.data)
-			});
+			this.response = authenticate;
+			this.loading  = false;
+
+			return authenticate
 		}
 	}
 }
