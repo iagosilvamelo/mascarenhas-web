@@ -56,7 +56,7 @@ export default new Vuex.Store({
 		},
 
 		CHANGE_API_KEY(state, payload) {
-			state.auth = payload;
+			state.api_key = payload;
 		}
 	},
 

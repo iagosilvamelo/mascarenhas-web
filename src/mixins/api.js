@@ -1,20 +1,25 @@
-import axios from "axios";
+import axios from "axios"
+import Store from "@/vuex/store.js"
 
 const localInstance = axios.create({
 	baseURL: "http://localhost:8011/api",
-
-	header: {
-		'Access-Control-Allow-Origin':'*',
-		"Access-Control-Allow-Headers": "Authorization", 
-		'Content-Type': 'application/json'
-	}
 });
 
 export default {
 	data() {
 		return {
+			api_key: null,
 			loading:  true,
-			response: null
+			response: null,
+
+			params: {
+				headers: {
+					'Access-Control-Allow-Origin':'*',
+					"Access-Control-Allow-Headers": "Authorization", 
+					'Content-Type': 'application/json',
+					'Auth': Store.state.api_key
+				}
+			}
 		}
 	},
 
@@ -23,7 +28,7 @@ export default {
 			this.loading  = true;
 			this.response = null;
 
-			localInstance.get(`${table}/${method}`)
+			localInstance.get(`${table}/${method}`, this.params)
 			.then(r => {
 				this.response = r.data;
 				this.loading  = false;

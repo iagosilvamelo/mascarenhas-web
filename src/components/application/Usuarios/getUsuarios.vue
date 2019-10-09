@@ -3,23 +3,19 @@
 		<table class="table table-striped table-sm">
     		<thead align="center">
     			<th>ID</th>
-    			<th>Internal Code</th>
-    			<th>Nome</th>
-    			<th>Telefone</th>
-    			<th>Ramal</th>
-    			<th>Start</th>
-    			<th>End</th>
+    			<th>username</th>
+    			<th>people_id</th>
+    			<th>online</th>
+    			<th>active</th>
     		</thead>
 
     		<tbody v-if="response" align="center">
-    			<tr v-for="(ramal, index) in response" :key="index">
-					<td>{{ ramal.ID }}</td>
-					<td>{{ ramal.INTERNAL_CODE }}</td>
-					<td>{{ ramal.NAME }}</td>
-					<td>{{ ramal.PHONE_NUMBER }}</td>
-					<td>{{ ramal.EXTENSION }}</td>
-					<td>{{ ramal.START_TIME }}</td>
-					<td>{{ ramal.END_TIME }}</td>
+    			<tr v-for="(user, index) in response.result" :key="index">
+					<td>{{ user.id }}</td>
+					<td>{{ user.username }}</td>
+					<td>{{ user.people_id }}</td>
+					<td>{{ user.online }}</td>
+					<td>{{ user.active }}</td>
 				</tr>
 
     		</tbody>
@@ -36,8 +32,8 @@
 		props: ["table", "method"],
 		mixins: [api],
 
-		created() {
-			this.GET("Ramal","All");
+		async created() {
+			this.users = await this.GET("User", "/");
 		},
 	};
 </script>
