@@ -58,11 +58,17 @@
 </template>
 
 <script>
+  import api from '@/mixins/api.js'
+
   export default {
     name: "left-menu",
+    mixins: [api],
 
     methods: {
-      logof() { this.$store.dispatch("logof", true) }
+      async logof() {
+        const result = await this.Logoff()
+        if ( result.status == "error" ) alert(result.result)
+      }
     }
   };
 </script>

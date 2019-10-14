@@ -47,6 +47,14 @@ export default {
 			this.loading  = false;
 
 			return authenticate
+		},
+
+		async Logoff() {
+			const result = await localInstance.post("Auth/Logof", {api_token: Store.state.api_key}).then( r => r.data )
+			const user = {id:null,nome:null,type:null,endereco:null,numero:null,complemento:null,bairro:null,uf:null,cep:null,email:null,fone:null,celular:null,nascimento:null,created_at:null,updated_at:null
+		}
+			if ( result.status == "success" ) this.$store.dispatch("logof", user );
+			return result
 		}
 	}
 }

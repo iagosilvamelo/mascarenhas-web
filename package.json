@@ -37,7 +37,8 @@
       "eslint:recommended"
     ],
     "rules": {
-      "vue/html-quotes": "bouble"
+      "vue/html-quotes": "bouble",
+      "no-mixed-spaces-and-tabs": 0
     },
     "parserOptions": {
       "parser": "babel-eslint"

@@ -72,13 +72,11 @@ export default new Vuex.Store({
 			context.commit("CHANGE_USER", payload.user);
 			context.commit("CHANGE_AUTH", true);
 			router.push('/App');
-			// if ( payload.email === 'masca@renhas.com' && payload.senha === '12345678') {
-			// 	context.commit("CHANGE_AUTH", true);
-			// 	router.push('/App');
-			// }
 		},
 
 		logof(context, payload) {
+			context.commit("CHANGE_API_KEY", null);
+			context.commit("CHANGE_USER", payload);
 			context.commit("CHANGE_AUTH", false);
 			router.push('/Home');
 		}
