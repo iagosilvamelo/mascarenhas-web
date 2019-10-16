@@ -11,12 +11,15 @@
             </div>
 
         </div>
+        
+        <logout />
     </div>
 </template>
 
 <script>
-    import topMenu   from "@/components/application/template/top-menu.vue"
-    export default { components: { topMenu } }
+    import topMenu from "@/components/application/template/top-menu.vue"
+    import logout  from "@/components/application/modal/logout.vue"
+    export default { components: { topMenu, logout } }
 </script>
 
 <style scoped>

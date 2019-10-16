@@ -38,7 +38,7 @@
     </li>
 
     <li class="nav-item">
-      <router-link :to="{name: 'Usuarios' }" class="nav-link">
+      <router-link :to="{ name: 'getAll', prop: { get: 'Todos'} }" class="nav-link">
         <font-awesome-icon icon="users" size="xs" />
         <span>Usuários</span>
       </router-link>
@@ -48,7 +48,7 @@
     <hr class="sidebar-divider">
 
     <li class="nav-item">
-      <a @click="logof" href="#" class="nav-link">
+      <a href="#" class="nav-link" data-toggle="modal" data-target="#logoutModal">
         <font-awesome-icon icon="sign-out-alt" size="xs" />
         <span>Sair</span>
       </a>
@@ -58,19 +58,7 @@
 </template>
 
 <script>
-  import api from '@/mixins/api.js'
-
-  export default {
-    name: "left-menu",
-    mixins: [api],
-
-    methods: {
-      async logof() {
-        const result = await this.Logoff()
-        if ( result.status == "error" ) alert(result.result)
-      }
-    }
-  };
+  export default { name: "left-menu" }
 </script>
 
 <style>

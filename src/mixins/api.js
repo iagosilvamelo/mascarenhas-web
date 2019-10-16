@@ -24,11 +24,11 @@ export default {
 	},
 
 	methods: {
-		GET(table, method) {
+		GET(table, foo = "") {
 			this.loading  = true;
 			this.response = null;
 
-			localInstance.get(`${table}/${method}`, this.params)
+			localInstance.get(`${table}/${foo}`, this.params)
 			.then(r => {
 				this.response = r.data;
 				this.loading  = false;
@@ -36,16 +36,9 @@ export default {
 		},
 
 		async Auth(credentials) {
-			this.loading  = true;
-			this.response = null;
-
 			const authenticate = await localInstance.post("Auth/Login", credentials).then( r => r.data )
 
 			if ( authenticate.status == "success" ) this.$store.dispatch("login", authenticate );
-
-			this.response = authenticate;
-			this.loading  = false;
-
 			return authenticate
 		},
 

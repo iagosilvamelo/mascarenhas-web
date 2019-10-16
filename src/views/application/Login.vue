@@ -13,7 +13,6 @@
 
                 <div class="alert alert-danger" :class="alert" role="alert">{{ erro }}</div>
 
-								<form @click.prevent="login">
 									<div class="form-label-group">
 										<input type="text" id="inputUser" v-model="params.username" class="form-control" placeholder="Usuário" required autofocus>
 										<label for="inputUser">Usuário</label>
@@ -24,13 +23,12 @@
 										<label for="inputPassword">Password</label>
 									</div>
 
-									<button class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2" type="submit" @click.prevent="login">Entrar</button>
+									<button class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2" type="submit" @click="login">Entrar</button>
 
 									<div class="d-flex justify-content-between">
 										<a class="small" href="#">Cadastrar</a>
 										<a class="small" href="#">Esqueceu sua senha?</a>
 									</div>
-								</form>
 							</div>
 						</div>
 					</div>

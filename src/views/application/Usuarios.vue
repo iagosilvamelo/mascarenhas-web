@@ -6,7 +6,7 @@
 
 		<ul class="nav nav-tabs" role="tablist" style="margin-bottom: 5px;">
 	        <li class="nav-item">
-	        	<router-link :to="{name: 'getAll', params: {get: 'Todos'} }" class="nav-link" data-toggle="tab">Totos</router-link>
+	        	<router-link :to="{name: 'getAll', params: {get: 'Todos'} }" class="nav-link active" data-toggle="tab">Totos</router-link>
 	        </li>
 
 	        <li class="nav-item">
