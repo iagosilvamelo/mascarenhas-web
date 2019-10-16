@@ -32,6 +32,16 @@ export default {
 			});
 		},
 
+		async POST(table, data) {
+			const response = await localInstance.post(table, data, this.params).then(r => r.data);
+			return response.result
+		},
+
+		async DELETE(table, id) {
+			const response = await localInstance.delete(`${table}/${id}`, this.params, {}).then(r => r.data);
+			return response.result
+		},
+
 		async Auth(credentials) {
 			const authenticate = await localInstance.post("Auth/Login", credentials).then( r => r.data )
 

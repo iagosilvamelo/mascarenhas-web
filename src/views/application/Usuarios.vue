@@ -2,6 +2,7 @@
 	<div>
 		<div class="d-sm-flex align-items-center justify-content-between mb-4">
 	        <h1 class="h3 mb-0 text-gray-800">Usuários</h1>
+	        <button class="btn btn-sm btn-success" data-toggle="modal" data-target="#modal-usuario">Cadastrar</button>
 	    </div>
 
 		<ul class="nav nav-tabs" role="tablist" style="margin-bottom: 5px;">
@@ -27,12 +28,17 @@
 	            </div>
 	        </div>
 	    </div>
+
+	    <usuarioModal :people="{}" :action="'add'" />
 	</div>
 </template>
 
 <script>
+	import usuarioModal from "@/components/application/modal/Usuario.vue"
+
 	export default {
 		props: ["get"],
+		components: { usuarioModal },
 
 		beforeRouteUpdate(to, from, next) {
 			next();
