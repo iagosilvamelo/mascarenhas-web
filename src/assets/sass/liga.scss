@@ -1,0 +1,45 @@
+// Import Plugins
+@import "bootstrap/bootstrap.scss";
+@import "sbadmin/sb-admin-2.scss";
+
+// Import LiGa
+@import "liga/colors.scss";
+@import "liga/login.scss";
+@import "liga/tools/tools.scss";
+
+.hidden { 
+	display: none 
+}
+.link {
+	cursor: pointer;
+}
+.fbig {
+	font-size: 20px
+}
+
+th, td, .txt-black {
+	color: black;
+}
+.table-sm th, .pointer {
+	cursor: pointer;
+}
+
+.close {
+	opacity: 1;
+}
+
+.alert-danger {
+	background-color: #FF3C3C;
+	color: white;
+}
+
+.alert-success {
+	background-color: #2DAC3A;
+	color: white;
+}
+
+@media screen and (max-width: 1260px) {
+	.no-md{
+		display: none;
+	}
+}

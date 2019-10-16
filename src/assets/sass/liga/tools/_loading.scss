@@ -1,0 +1,24 @@
+/*
+	#
+	#
+	#	DIV LOADING
+	#
+	#
+*/
+.loading{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	background: rgba(0, 0, 0, 0.4);
+	display: none;
+}
+.load-content{
+	margin-top:18%;
+	color: white;
+}
+.spinner-border{
+	margin-top: 40px;
+}
+/*		FIM DIV LOADING 	*/

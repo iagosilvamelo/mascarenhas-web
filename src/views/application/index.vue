@@ -12,6 +12,6 @@
     export default { components: { leftMenu, AppContent } }
 </script>
 
-<style scoped>
-	@import '../../assets/css/liga.css';
+<style lang="scss">
+	@import '../../assets/sass/liga.scss';
 </style>

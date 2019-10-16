@@ -1,0 +1,22 @@
+/*
+	#
+	#	COLORS
+	#
+*/
+$verde:		#8EC72A	!default;
+$amarelo:	#D6B900	!default;
+$amarelo2:	#AD8700	!default;
+$vermelho:	#C80D15	!default;
+$laranja:	#C9442A	!default;
+
+.info{color: $dad1;}
+.info:hover{color: $dad2;}
+
+.atencao{color: $amarelo;}
+.atencao:hover{color: $amarelo;}
+
+.verde{color: $verde;}
+.vermelho{color: $vermelho;}
+.laranja{color: $laranja;}
+
+.focus {border: solid 1px red;}
