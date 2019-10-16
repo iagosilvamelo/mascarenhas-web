@@ -14,9 +14,6 @@ export default {
 
 			params: {
 				headers: {
-					'Access-Control-Allow-Origin':'*',
-					"Access-Control-Allow-Headers": "Authorization", 
-					'Content-Type': 'application/json',
 					'Auth': Store.state.api_key
 				}
 			}
