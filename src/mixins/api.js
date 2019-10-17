@@ -9,8 +9,6 @@ export default {
 	data() {
 		return {
 			api_key: null,
-			loading:  true,
-			response: null,
 
 			params: {
 				headers: {
@@ -21,24 +19,18 @@ export default {
 	},
 
 	methods: {
-		GET(table, foo = "") {
-			this.loading  = true;
-			this.response = null;
-
-			localInstance.get(`${table}/${foo}`, this.params)
-			.then(r => {
-				this.response = r.data;
-				this.loading  = false;
-			});
+		async GET(route, foo = "") {
+			const response = await localInstance.get(`${route}/${foo}`, this.params).then(r => r.data)
+			return response
 		},
 
-		async POST(table, data) {
-			const response = await localInstance.post(table, data, this.params).then(r => r.data);
-			return response.result
+		async POST(route, data) {
+			const response = await localInstance.post(route, data, this.params).then(r => r.data);
+			return response
 		},
 
-		async DELETE(table, id) {
-			const response = await localInstance.delete(`${table}/${id}`, this.params, {}).then(r => r.data);
+		async DELETE(route, id) {
+			const response = await localInstance.delete(`${route}/${id}`, this.params, {}).then(r => r.data);
 			return response.result
 		},
 

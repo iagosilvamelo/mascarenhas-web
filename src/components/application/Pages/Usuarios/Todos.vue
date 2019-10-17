@@ -3,25 +3,23 @@
 		<table class="table table-striped table-sm">
     		<thead align="center">
     			<th>ID</th>
-    			<th>Usuário</th>
-    			<th>Online</th>
-    			<th>Ativo</th>
+    			<th>Nome</th>
+    			<th>Tipo</th>
+    			<th>Email</th>
     			<th></th>
     		</thead>
 			
 			<transition mode="out-in" name="leftIn">
-	    		<tbody v-if="response" align="center">
-	    			<tr v-for="(user, index) in response.result" :key="index">
+	    		<tbody v-if="users" align="center">
+	    			<tr v-for="(user, index) in users.result" :key="index">
 						<td>{{ user.id }}</td>
-						<td>{{ user.username }}</td>
+						<td>{{ user.nome }}</td>
 						<td>
-							<font-awesome-icon v-if="user.online == 1" icon="dot-circle" class="verde" />
-							<font-awesome-icon v-else icon="dot-circle" class="vermelho" />
+							<span v-if="user.type == 1">Usuário</span>
+							<span v-if="user.type == 2">Administrador</span>
+							<span v-if="user.type == 3">Root</span>
 						</td>
-						<td>
-							<font-awesome-icon v-if="user.active == 1" icon="dot-circle" class="verde" />
-							<font-awesome-icon v-else icon="dot-circle" class="vermelho" />
-						</td>
+						<td>{{ user.email }}</td>
 						<td><font-awesome-icon icon="eye" class="info pointer" /></td>
 					</tr>
 
@@ -37,12 +35,24 @@
 	import replace from "@/mixins/replace.js";
 
 	export default {
-		props: ["table", "method"],
+		name: "component-todos",
 		mixins: [api],
 
-		async created() {
-			this.users = await this.GET("User");
+		data() { return {
+			users: null
+		}},
+
+		created() {
+			this.get_data()
+			// console.log(this)
 		},
+
+		methods: {
+			async get_data() {
+				this.users = null
+				this.users = await this.GET("People")
+			}
+		}
 	};
 </script>
 

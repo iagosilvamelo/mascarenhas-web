@@ -36,8 +36,8 @@
 				                <select id="tipo" class="form-control form-control-sm" :class="[(people.type) ? '' : incomplete]" v-model="people.type">
 				                	<option value="0" disabled>Tipo de usuário</option>
 				                	<option value="1">Usuário</option>
-				                	<option value="2">Palestrante</option>
-				                	<option value="3">Super Administrador</option>
+				                	<option value="2">Administrador</option>
+				                	<option value="3">Root</option>
 				                </select>
 				            </div>
 				        </div>
@@ -72,91 +72,57 @@
 				    	<div class="col-lg-4">
 				             <div class="form-group">
 				                <label>CEP</label>
-					            <div class="input-group input-group-sm">
-					            	<input type="text" class="form-control" v-model="people.cep" aria-label="Small" aria-describedby="get-cep">
-					                <div class="input-group-append">
-										<span class="input-group-text pointer" id="get-cep" @click="get_cep">Buscar</span>
-									</div>
-					            </div>
-				            </div>
-				        </div>
-
-				        <div class="col-lg-4">
-				             <div class="form-group">
-				                <label>UF</label>
-				                <select id="tipo" class="form-control form-control-sm" v-model="people.uf">
-				                	<option v-for="uf in estados" :value="uf.sigla">{{ uf.sigla }} - {{ uf.nome }}</option>
-				                </select>
-				            </div>
-				        </div>
-
-				        <div class="col-lg-4">
-				             <div class="form-group">
-				                <label>Município</label>
-				                <input type="text" class="form-control form-control-sm" v-model="people.cidade">
+					            <input type="text" class="form-control form-control-sm" v-model="people.cep" @keyup.enter="get_cep">
 				            </div>
 				        </div>
 				    </div>
 
 				    <div class="row">
-				    	<div class="col-lg-4">
+				    	<div class="col-lg-5">
 				             <div class="form-group">
 				                <label>Logradouro</label>
 				                <input type="text" class="form-control form-control-sm" v-model="people.endereco">
 				            </div>
 				        </div>
 
-				        <div class="col-lg-2">
+				        <div class="col-lg-3">
 				             <div class="form-group">
 				                <label>Número</label>
 				                <input type="text" class="form-control form-control-sm" v-model="people.endereco">
 				            </div>
 				        </div>
 
-				        <div class="col-lg-2">
+				        <div class="col-lg-4">
 				             <div class="form-group">
 				                <label>Complemento</label>
 				                <input type="text" class="form-control form-control-sm" v-model="people.endereco">
 				            </div>
 				        </div>
+				    </div>
 
-				        <div class="col-lg-4">
+				    <div class="row">
+				    	<div class="col-lg-5">
 				             <div class="form-group">
 				                <label>Bairro</label>
 				                <input type="text" class="form-control form-control-sm" v-model="people.bairro">
 				            </div>
 				        </div>
-				    </div>
 
-				    <div class="row" v-if="action == 'add'">
-				    	<div class="col-12">
-				    		<hr>
-				    	</div>
-
-				        <div class="col-lg-4">
-				    		<div class="form-group">
-				                <label>Usuário</label>
-				                <input type="text" class="form-control form-control-sm" :class="[(user.username) ? '' : incomplete]" v-model="user.username">
+				        <div class="col-lg-5">
+				             <div class="form-group">
+				                <label>Município</label>
+				                <input type="text" class="form-control form-control-sm" v-model="people.cidade">
 				            </div>
-				    	</div>
+				        </div>
 
-				    	<div class="col-lg-4">
-				    		<div class="form-group">
-				                <label>Senha</label>
-				                <input type="password" class="form-control form-control-sm" :class="[(password.senha) ? '' : incomplete], pwd_verify" v-model="password.senha">
+				    	<div class="col-lg-2">
+				             <div class="form-group">
+				                <label>UF</label>
+				                <input type="text" class="form-control form-control-sm" v-model="people.uf">
 				            </div>
-				    	</div>
-
-				    	<div class="col-lg-4">
-				    		<div class="form-group">
-				                <label>Repetir senha</label>
-				                <input type="password" class="form-control form-control-sm" :class="[(password.resenha) ? '' : incomplete], pwd_verify" v-model="password.resenha">
-				            </div>
-				    	</div>
+				        </div>
 				    </div>
 				</div>
-
-				<input type="hidden" v-model="user.status">
 
 				<div class="modal-footer">
 					<button class="btn btn-danger btn-sm"  v-if="action == 'view'" @click="deletar"   data-dismiss="modal">Deletar</button>
@@ -180,25 +146,7 @@
 			incomplete: false,
 			pwd_verify: "",
 			estados: {},
-
-			user: {
-				username: "",
-				password: "",
-				active: 0,
-				online: 0
-			},
-
-			password: {
-				senha: "",
-				resenha: ""
-			}
 		}},
-
-		created() {
-			fetch("https://servicodados.ibge.gov.br/api/v1/localidades/estados")
-			.then(r => r.json())
-			.then(r => this.estados = r)
-		},
 
 		methods: {
 			get_cep() {
@@ -218,7 +166,7 @@
 				//
 				//	Verifica se todos os dados foram preenchidos
 				//
-				if ( !this.people.nome || !this.people.nascimento || !this.people.email || !this.people.type || !this.user.username || !this.password.senha || !this.password.resenha ) 
+				if ( !this.people.nome || !this.people.nascimento || !this.people.email || !this.people.type ) 
 				{
 					window.alert("Preencha os campos obrigatórios!")
 					this.incomplete = "focus"
@@ -226,30 +174,11 @@
 
 				else 
 				{
-					//
-					//	Verifica se as senhas são iguais
-					//
-					if ( this.password.senha == this.password.resenha ) 
-					{
-						this.user.password = this.password.senha
+					const people = await this.POST("People", this.people)
 
-						const params = {
-							people: this.people,
-							user:   this.user
-						}
+					if ( people.status == "success") this.$emit("alert", { status: "success", result: "Usuario adicionado com sucesso" })
 
-						//	Efetua a requisição
-						// const response = await this.POST("User", this.user)
-						$("#modal-usuario").modal('hide')
-
-						console.log(params)
-					}
-
-					else
-					{
-						window.alert("Senhas não são iguais!")
-						this.pwd_verify = "focus"
-					}
+					else window.alert(people.result)
 				}
 			},
 

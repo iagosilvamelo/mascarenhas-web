@@ -1,8 +1,8 @@
 <template>
   <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
-    <h1 class="h6 mb-0 text-gray-600" v-if="logedUser.type == 3">Administrador</h1>
-    <h1 class="h6 mb-0 text-gray-600" v-if="logedUser.type == 2">Palestrante</h1>
+    <h1 class="h6 mb-0 text-gray-600" v-if="logedUser.type == 3">Root</h1>
+    <h1 class="h6 mb-0 text-gray-600" v-if="logedUser.type == 2">Administrador</h1>
     <h1 class="h6 mb-0 text-gray-600" v-if="logedUser.type == 1">Usuário</h1>
 
     <!-- Sidebar Toggle (Topbar) -->
