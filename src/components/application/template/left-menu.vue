@@ -31,14 +31,14 @@
     </div>
 
     <li class="nav-item">
-      <router-link :to="{name: 'Eventos' }" class="nav-link">
+      <router-link :to="{name: 'nextEvent', params: {get: 'Proximos'} }" class="nav-link">
         <font-awesome-icon icon="calendar-alt" size="xs" />
         <span>Eventos</span>
       </router-link>
     </li>
 
     <li class="nav-item">
-      <router-link :to="{ name: 'getAll', prop: { get: 'Todos'} }" class="nav-link">
+      <router-link :to="{ name: 'getAll', params: { get: 'Todos'} }" class="nav-link">
         <font-awesome-icon icon="users" size="xs" />
         <span>Usuários</span>
       </router-link>

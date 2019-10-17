@@ -8,6 +8,9 @@ import getRoot            from "@/components/application/Pages/Usuarios/Root.vue
 import getUsuarios        from "@/components/application/Pages/Usuarios/Usuarios.vue";
 import getAdministradores from "@/components/application/Pages/Usuarios/Administradores.vue";
 
+import nextEvent from "@/components/application/Pages/Eventos/Proximos.vue";
+import oldEvent  from "@/components/application/Pages/Eventos/Passados.vue";
+
 export default [
 	{
 		path: "/",
@@ -30,6 +33,23 @@ export default [
 		name: "Eventos",
 		path: "Eventos",
 		component: Eventos,
+		props: true,
+
+		children: [
+			{
+				name: "nextEvent",
+				path: ":get",
+				component: nextEvent,
+				props: true
+			},
+
+			{
+				name: "oldEvent",
+				path: ":get",
+				component: oldEvent,
+				props: true
+			}
+		]
 	},
 
 	{
