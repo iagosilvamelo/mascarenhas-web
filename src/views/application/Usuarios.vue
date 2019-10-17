@@ -19,13 +19,17 @@
 	        <li class="nav-item">
 	        	<router-link :to="{name: 'getAdmins', params: {get: 'Administradores'} }" class="nav-link" data-toggle="tab">Administradores</router-link>
 	        </li>
+
+	        <li class="nav-item">
+	        	<router-link :to="{name: 'getRoot', params: {get: 'Root'} }" class="nav-link" data-toggle="tab">Root</router-link>
+	        </li>
 	    </ul>
 
 	    <div class="row">
 	        <div class="col-12">
 	            <div class="tab-content">
 	            	<transition mode="out-in" name="leftIn">
-						<router-view :key="get" @modal="show_modal"></router-view>
+						<router-view :key="get" @modal="show_modal" ref="component"></router-view>
 					</transition>
 	            </div>
 	        </div>
@@ -64,7 +68,7 @@
 				this.alert.msg  = payload.result
 
 				$("#modal-usuario").modal('hide')
-				this.$children[4].get_data()
+				this.$refs.component.get_data()
 				$("#app-alert").show()
 				setTimeout(() => $("#app-alert").hide(), 3000 )
 			}, 

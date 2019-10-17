@@ -44,7 +44,6 @@
 
 		created() {
 			this.get_data()
-			// console.log(this)
 		},
 
 		methods: {

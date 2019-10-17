@@ -4,6 +4,7 @@ import Eventos   from "@/views/application/Eventos.vue";
 import Usuarios  from "@/views/application/Usuarios.vue";
 
 import getTodos           from "@/components/application/Pages/Usuarios/Todos.vue";
+import getRoot            from "@/components/application/Pages/Usuarios/Root.vue";
 import getUsuarios        from "@/components/application/Pages/Usuarios/Usuarios.vue";
 import getAdministradores from "@/components/application/Pages/Usuarios/Administradores.vue";
 
@@ -42,6 +43,13 @@ export default [
 				name: "getAll",
 				path: ":get",
 				component: getTodos,
+				props: true
+			},
+
+			{
+				name: "getRoot",
+				path: ":get",
+				component: getRoot,
 				props: true
 			},
 

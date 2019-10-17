@@ -35,7 +35,7 @@
 	import replace from "@/mixins/replace.js";
 
 	export default {
-		name: "component-administradores",
+		name: "component-root",
 		mixins: [api],
 
 		data() { return {
@@ -49,7 +49,7 @@
 		methods: {
 			async get_data() {
 				this.users = null
-				this.users = await this.GET("People", "?where=type&value=2")
+				this.users = await this.GET("People", "?where=type&value=3")
 			},
 
 			view(user) { 
