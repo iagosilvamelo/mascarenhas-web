@@ -125,8 +125,8 @@
 				</div>
 
 				<div class="modal-footer">
-					<button class="btn btn-danger btn-sm"  v-if="action == 'view'" @click="deletar"   data-dismiss="modal">Deletar</button>
-					<button class="btn btn-warning btn-sm" v-if="action == 'view'" @click="atualizar" data-dismiss="modal">Atualizar</button>
+					<button class="btn btn-danger btn-sm"  v-if="action == 'view'" @click="deletar">Deletar</button>
+					<button class="btn btn-warning btn-sm" v-if="action == 'view'" @click="atualizar">Atualizar</button>
 					<button class="btn btn-success btn-sm" v-if="action == 'add'"  @click="adicionar">Cadastrar</button>
 				</div>
 			</div>
@@ -175,20 +175,35 @@
 				else 
 				{
 					const people = await this.POST("People", this.people)
-
 					if ( people.status == "success") this.$emit("alert", { status: "success", result: "Usuario adicionado com sucesso" })
-
 					else window.alert(people.result)
 				}
 			},
 
-			atualizar() {
-				console.log(this.user)
+			async atualizar() {
+				//
+				//	Verifica se todos os dados foram preenchidos
+				//
+				if ( !this.people.nome || !this.people.nascimento || !this.people.email || !this.people.type ) 
+				{
+					window.alert("Preencha os campos obrigatórios!")
+					this.incomplete = "focus"
+				}
+
+				else 
+				{
+					const people = await this.PUT("People", this.people)
+					if ( people.status == "success") this.$emit("alert", { status: "success", result: "Usuario atualizado com sucesso" })
+					else window.alert(people.result)
+				}
 			},
 
 			async deletar() {
-				const response = this.DELETE('User', this.user.id)
-				this.$router.replace({ name: 'Usuarios', params: {get: 'Usuarios'} })
+				if ( window.confirm(`Isso irá deletar o usuário ${this.people.nome} permanentemente.`)) {
+					const response = await this.DELETE('People', this.people.id)
+					if ( response.status == "success") this.$emit("alert", { status: "success", result: "Usuario deletado com sucesso" })
+					else window.alert(response.result)
+				}
 			}
 		}
 	}

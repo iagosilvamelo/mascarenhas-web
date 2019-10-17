@@ -20,7 +20,7 @@
 							<span v-if="user.type == 3">Root</span>
 						</td>
 						<td>{{ user.email }}</td>
-						<td><font-awesome-icon icon="eye" class="info pointer" /></td>
+						<td><font-awesome-icon icon="eye" class="info pointer" @click="view(user)" /></td>
 					</tr>
 
 	    		</tbody>
@@ -51,7 +51,11 @@
 			async get_data() {
 				this.users = null
 				this.users = await this.GET("People")
-			}
+			},
+
+			view(user) { 
+				this.$emit("modal", user)
+			},
 		}
 	};
 </script>

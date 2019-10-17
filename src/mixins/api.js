@@ -29,9 +29,14 @@ export default {
 			return response
 		},
 
+		async PUT(route, data) {
+			const response = await localInstance.put(`${route}/${data.id}`, data, this.params).then(r => r.data);
+			return response
+		},
+
 		async DELETE(route, id) {
 			const response = await localInstance.delete(`${route}/${id}`, this.params, {}).then(r => r.data);
-			return response.result
+			return response
 		},
 
 		async Auth(credentials) {

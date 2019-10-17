@@ -2,7 +2,7 @@
 	<div>
 		<div class="d-sm-flex align-items-center justify-content-between mb-4">
 	        <h1 class="h3 mb-0 text-gray-800">Usuários</h1>
-	        <button class="btn btn-sm btn-success" data-toggle="modal" data-target="#modal-usuario">Cadastrar</button>
+	        <button class="btn btn-sm btn-success" @click="new_user">Cadastrar</button>
 	    </div>
 
 	    <alert :type="alert.type" :mensagem="alert.msg" />
@@ -25,13 +25,13 @@
 	        <div class="col-12">
 	            <div class="tab-content">
 	            	<transition mode="out-in" name="leftIn">
-						<router-view :key="get"></router-view>
+						<router-view :key="get" @modal="show_modal"></router-view>
 					</transition>
 	            </div>
 	        </div>
 	    </div>
 
-	    <usuarioModal :people="{}" :action="'add'" @alert="show_alert" />
+	    <usuarioModal :people="people" :action="modal_action" @alert="show_alert" />
 	</div>
 </template>
 
@@ -52,7 +52,10 @@
 			alert: {
 				type: "",
 				msg: ""
-			}
+			},
+
+			people: {},
+			modal_action: ""
 		}},
 
 		methods: {
@@ -64,6 +67,18 @@
 				this.$children[4].get_data()
 				$("#app-alert").show()
 				setTimeout(() => $("#app-alert").hide(), 3000 )
+			}, 
+
+			new_user() {
+				this.people = {}
+				this.modal_action = "add"
+				$("#modal-usuario").modal()
+			},
+
+			show_modal(payload) {
+				this.people = payload
+				this.modal_action = "view"
+				$("#modal-usuario").modal()
 			}
 		}
 	};
