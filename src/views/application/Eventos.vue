@@ -27,7 +27,7 @@
 	        </div>
 	    </div>
 
-	    <eventoModal :people="people" :action="modal_action" @alert="show_alert" />
+	    <eventoModal :evento="evento" :action="modal_action" @alert="show_alert" />
 	</div>
 </template>
 
@@ -50,7 +50,7 @@
 				msg: ""
 			},
 
-			people: {},
+			evento: {},
 			modal_action: ""
 		}},
 
@@ -66,13 +66,13 @@
 			}, 
 
 			new_user() {
-				this.people = {}
+				this.evento = {}
 				this.modal_action = "add"
 				$("#modal-usuario").modal()
 			},
 
 			show_modal(payload) {
-				this.people = payload
+				this.evento = payload
 				this.modal_action = "view"
 				$("#modal-usuario").modal()
 			}
