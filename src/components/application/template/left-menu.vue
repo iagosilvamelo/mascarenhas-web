@@ -1,23 +1,8 @@
 <template>
   <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
     <li class="nav-item">
-      <router-link :to="{name: 'Dashboard' }" class="nav-link">
-        <font-awesome-icon icon="tachometer-alt" />
-        <span><b>Dashboard</b></span>
-      </router-link>
-    </li>
-
-    <!-- Divider -->
-    <hr class="sidebar-divider">
-
-    <!-- Heading -->
-    <div class="sidebar-heading">
-      Informações
-    </div>
-
-    <li class="nav-item">
       <router-link :to="{name: 'Agenda' }" class="nav-link">
-        <font-awesome-icon icon="calendar-check" size="xs" />
+        <font-awesome-icon icon="calendar-alt" />
         <span>Agenda</span>
       </router-link>
     </li>
@@ -32,7 +17,7 @@
 
     <li class="nav-item">
       <router-link :to="{name: 'nextEvent', params: {get: 'Proximos'} }" class="nav-link">
-        <font-awesome-icon icon="calendar-alt" size="xs" />
+        <font-awesome-icon icon="calendar-check" size="xs" />
         <span>Eventos</span>
       </router-link>
     </li>

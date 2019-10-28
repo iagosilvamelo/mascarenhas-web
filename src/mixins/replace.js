@@ -1,13 +1,13 @@
 export default {
 	methods: {
-		Phone(val) {
-			if ( !val ) return '-'
+		Phone(payload) {
+			if ( !payload ) return '-'
 
 		    else {
-		        if ( val == 'start') return 'Liga';
+		        if ( payload == 'start') return 'Liga';
 
 		        else{
-		            let n = new String(val);
+		            let n = new String(payload);
 
 		            switch ( n.length ){
 		                case 11:
@@ -27,16 +27,24 @@ export default {
 		                    break;
 
 		                default:
-		                    return val;
+		                    return payload;
 		                    break;
 		            }
 		        }
 		    }
 		},
 
-		LimpaNum(val) {
-			const number = val.replace( /[^0-9]/g, '');
+		LimpaNum(payload) {
+			const number = payload.replace( /[^0-9]/g, '');
     		return number;
+		},
+
+		DateFormat(payload) {
+			const ano = payload.slice(0,4)
+			const mes = payload.slice(5, 7)
+			const dia = payload.slice(8, 10)
+
+			return `${dia}/${mes}/${ano}`
 		}
 	}
 }

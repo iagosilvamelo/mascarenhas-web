@@ -77,6 +77,15 @@
 				        </div>
 				    </div>
 
+				    <div class="row">
+				    	<div class="col-12">
+				    		<div class="form-group">
+				                <label>Programação</label>
+				                <textarea class="form-control form-control-sm" v-model="evento.programa"></textarea>
+				            </div>
+				    	</div>
+				    </div>
+
 				    <hr>
 
 				    <div class="row">
@@ -99,14 +108,14 @@
 				        <div class="col-lg-3">
 				             <div class="form-group">
 				                <label>Número</label>
-				                <input type="text" class="form-control form-control-sm" v-model="evento.endereco">
+				                <input type="text" class="form-control form-control-sm" v-model="evento.numero">
 				            </div>
 				        </div>
 
 				        <div class="col-lg-4">
 				             <div class="form-group">
 				                <label>Complemento</label>
-				                <input type="text" class="form-control form-control-sm" v-model="evento.endereco">
+				                <input type="text" class="form-control form-control-sm" v-model="evento.complemento">
 				            </div>
 				        </div>
 				    </div>
@@ -146,7 +155,7 @@
 </template>
 
 <script>
-	import api   from "@/mixins/api.js"
+	import api from "@/mixins/api.js"
 
 	export default {
 		name: "modal-evento",
@@ -161,6 +170,7 @@
 		}},
 
 		created() {
+			// this.$loadScript("https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js")
 			this.get_palestrantes();
 		},
 

@@ -16,8 +16,8 @@
 						<td>{{ event.id }}</td>
 						<td>{{ event.titulo }}</td>
 						<td>{{ event.tipo }}</td>
-						<td>{{ event.date_ini }}</td>
-						<td>{{ event.date_fim }}</td>
+						<td>{{ DateFormat( event.date_ini ) }}</td>
+						<td>{{ DateFormat( event.date_fim ) }}</td>
 						<td><font-awesome-icon icon="eye" class="info pointer" @click="view(event)" /></td>
 					</tr>
 
@@ -34,7 +34,7 @@
 
 	export default {
 		name: "proximos",
-		mixins: [api],
+		mixins: [api, replace],
 
 		data() { return {
 			eventos: null
