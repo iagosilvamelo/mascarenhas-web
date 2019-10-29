@@ -12,12 +12,12 @@
 			
 			<transition mode="out-in" name="leftIn">
 	    		<tbody v-if="eventos" align="center">
-	    			<tr v-for="(event, index) in eventos.result" :key="index">
+	    			<tr v-for="(event, index) in eventos.result" :key="index" v-if="event.date_ini > hoje">
 						<td>{{ event.id }}</td>
 						<td>{{ event.titulo }}</td>
 						<td>{{ event.tipo }}</td>
-						<td>{{ DateFormat( event.date_ini ) }}</td>
-						<td>{{ DateFormat( event.date_fim ) }}</td>
+						<td>{{ event.date_ini | moment("D/M/Y") }}</td>
+						<td>{{ event.date_fim | moment("D/M/Y") }}</td>
 						<td><font-awesome-icon icon="eye" class="info pointer" @click="view(event)" /></td>
 					</tr>
 
@@ -42,6 +42,10 @@
 
 		created() {
 			this.get_data()
+		},
+
+		computed: {
+			hoje() { return this.$moment().format("Y-M-D") }
 		},
 
 		methods: {
