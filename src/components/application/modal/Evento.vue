@@ -145,6 +145,10 @@
 				</div>
 
 				<div class="modal-footer">
+					<router-link :to="{ name: 'Evento', params: { get: evento.id} }">
+						<button class="btn btn-info btn-sm" v-if="action == 'view'" data-dismiss="modal">Palestras</button>
+					</router-link>
+
 					<button class="btn btn-danger btn-sm"  v-if="action == 'view'" @click="deletar">Deletar</button>
 					<button class="btn btn-warning btn-sm" v-if="action == 'view'" @click="atualizar">Atualizar</button>
 					<button class="btn btn-success btn-sm" v-if="action == 'add'"  @click="adicionar">Cadastrar</button>
@@ -170,7 +174,6 @@
 		}},
 
 		created() {
-			// this.$loadScript("https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js")
 			this.get_palestrantes();
 		},
 

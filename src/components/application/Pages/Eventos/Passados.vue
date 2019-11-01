@@ -12,7 +12,7 @@
 			
 			<transition mode="out-in" name="leftIn">
 	    		<tbody v-if="eventos" align="center">
-	    			<tr v-for="(event, index) in eventos.result" :key="index" v-if="event.date_ini < hoje">
+	    			<tr v-for="(event, index) in eventos.result" :key="index" v-if="event.date_fim > hoje">
 						<td>{{ event.id }}</td>
 						<td>{{ event.titulo }}</td>
 						<td>{{ event.tipo }}</td>

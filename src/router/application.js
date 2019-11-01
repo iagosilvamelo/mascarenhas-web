@@ -1,6 +1,7 @@
 import Dashboard from "@/views/application/Dashboard.vue";
 import Agenda    from "@/views/application/Agenda.vue";
 import Eventos   from "@/views/application/Eventos.vue";
+import Evento    from "@/views/application/Evento.vue";
 import Usuarios  from "@/views/application/Usuarios.vue";
 
 import getTodos           from "@/components/application/Pages/Usuarios/Todos.vue";
@@ -14,13 +15,7 @@ import oldEvent  from "@/components/application/Pages/Eventos/Passados.vue";
 export default [
 	{
 		path: "/",
-		component: Dashboard,
-	},
-
-	{
-		name: "Dashboard",
-		path: "Dashboard",
-		component: Dashboard,
+		component: Agenda,
 	},
 
 	{
@@ -50,6 +45,12 @@ export default [
 				props: true
 			}
 		]
+	},
+
+	{
+		name: "Evento",
+		path: "Evento/:get",
+		component: Evento,
 	},
 
 	{
